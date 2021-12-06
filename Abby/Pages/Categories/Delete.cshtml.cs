@@ -36,6 +36,7 @@ namespace Abby.Pages.Categories
             {
                 _db.Category.Remove(Category);
                 await _db.SaveChangesAsync(); // This command is the actual saving of data to the database
+                TempData["success"] = "Category removed successfully!";
                 return RedirectToPage("Index");
             }
             

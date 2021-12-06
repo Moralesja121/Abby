@@ -31,6 +31,7 @@ namespace Abby.Pages.Categories
             {
                 await _db.Category.AddAsync(Category);
                 await _db.SaveChangesAsync(); // This command is the actual saving of data to the database
+                TempData["success"] = "Category created successfully!"; // Adds an alert that disappears once it is seen by the user
                 return RedirectToPage("Index");
             }
             

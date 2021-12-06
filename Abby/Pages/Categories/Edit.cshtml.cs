@@ -36,6 +36,7 @@ namespace Abby.Pages.Categories
             {
                 _db.Category.Update(Category);
                 await _db.SaveChangesAsync(); // This command is the actual saving of data to the database
+                TempData["success"] = "Category updated successfully!";
                 return RedirectToPage("Index");
             }
             
