@@ -9,13 +9,13 @@
             <h2 class="text-primary">Category List</h2>
         </div>
         <div class="col-6">
-            
+            <a asp-page="create" class="btn btn-primary">Create New Category</a>
         </div>
     </div>
 
     <br /><br />
 
-    <table>
+    <table class="table table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>
@@ -27,11 +27,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var obj in )
-            <tr>
-                <td>VALUE OF CATEGORY NAME</td>
-                <td>VALUE OF DISPLAY ORDER</td>
-            </tr>
+            @foreach (var obj in Model.Categories)
+            {
+                <tr>
+                    <td width="50%">@obj.Name</td>
+                    <td width="30%">@obj.DisplayOrder</td>
+                </tr>
+            }
+
         </tbody>
     </table>
 </div>
