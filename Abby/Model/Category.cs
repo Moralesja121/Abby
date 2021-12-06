@@ -10,6 +10,7 @@ namespace Abby.Model
         [Required] // Makes Name a requirement
         public string Name { get; set; }
 
+        [Display (Name ="Display Order")]
         public int DisplayOrder { get; set; }
     }
 }

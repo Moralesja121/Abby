@@ -23,9 +23,18 @@ namespace Abby.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-            await _db.Category.AddAsync(Category);
-            await _db.SaveChangesAsync(); // This command is the actual saving of data to the database
-            return RedirectToPage("Index");
+            if (Category.Name == Category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError(string.Empty, "The DisplayOrder cannot be an exact math to the Name.");
+            }
+            if (ModelState.IsValid)
+            {
+                await _db.Category.AddAsync(Category);
+                await _db.SaveChangesAsync(); // This command is the actual saving of data to the database
+                return RedirectToPage("Index");
+            }
+            
+            return Page();
         }
     }
 }
